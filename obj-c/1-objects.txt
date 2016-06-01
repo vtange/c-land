@@ -1,0 +1,47 @@
+//---------------------------------
+//-------------------
+//Strings
+//-------------------
+
+NSString *firstName = @"Victor";
+NSString *lastName = @"Tang";
+
+NSLog(@"Hello" World");
+NSLog(firstName);
+
+//Logging multiple arguments
+NSLog(@"%@ %@", firstName, lastName);
+
+//---------------------------------
+//-------------------
+//Numbers
+//-------------------
+
+NSNumber *age = @24;
+
+//Logging numbers MUST be conv to string
+NSLog(@"%@ is %@ years old.", firstName, age);
+
+//---------------------------------
+//-------------------
+//Arrays
+//-------------------
+
+NSArray *apps = @[@"AngryBirds",@"CandyLand",@"FruitNinja"];
+
+//ACCESS BY INDEX AS USUAL
+NSLog(@"%@", apps[1]);
+
+//ARE IMMUTABLE
+apps[3] = @"OmNom" //-> WILL NOT WORK
+apps = @[@"AngryBirds",@"CandyLand",@"FruitNinja",@"OmNom"];
+
+//---------------------------------
+//-------------------
+//Dictionaries
+//-------------------
+
+NSDictionary *appRatings = @{@"AngryBirds":@3,@"CandyLand":@4};
+
+//USE BRACKET NOTATION TO ACCESS KEY
+NSLog(@"Lettertouch has a rating of %@.", appRatings[@"Lettertouch"]);
