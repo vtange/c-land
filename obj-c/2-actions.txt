@@ -1,0 +1,95 @@
+//In O-C you tell objects "Messages" to perform actions
+
+[object action]
+
+	/*It is similar-ish to Javascript's object-method calls
+
+	obj.action
+		
+		 - or -
+		
+	action.call(obj,arguments)
+	
+	*/
+	
+//Many objects have "description' method.
+	/* similar to Javascript .toString() */
+
+NSArray *fruits = [@"Apple",@"Pear"];
+NSString *result = [fruits description];
+
+NSLog(@"%@", result);
+
+
+//Numbers and Strings cannOT be run with operands.
+	//-> called c operation.
+	//-> must do with NSUIntegers
+
+
+//multiply 2 integers
+	/* similar to Javascript 3*6 */
+
+NSNumber *higgiesAge = @6;
+NSNumber *phoneLives = @3;
+
+NSUInteger higgiesAgeInt = [higgiesAge unsignedIntegerValue];
+NSUInteger phoneLivesInt = [phoneLives unsignedIntegerValue];
+
+NSUInteger higgiesRealAge = higgiesAgeInt * phoneLivesInt;
+
+//adding 2 strings -> use stringByAppendingString method
+	/* similar to Javascript "hello " + "world" */
+
+NSString *firstName = @"Hello, Mr. Higgie.";
+NSString *lastName = @"Hello, Tang.";
+
+NSString *fullName = [[firstName stringByAppendingString:@" "] stringByAppendingString:lastName];
+
+NSLog(@"%@", fullName);
+
+
+//		- or -
+
+			NSString *firstName = @"Hello, Mr. Higgie.";
+			NSString *lastName = @"Hello, Tang.";
+
+			NSString *fullName = [NSString stringWithFormat:@"%@ %@",firstName, lastName];
+
+			NSLog(@"%@", fullName);
+
+
+//replaceing string
+	/* similar to Javascript .replace() */
+
+
+NSString *firstName = @"Hello, Mr. Higgie.";
+NSString *lastName = @"Hello, Tang.";
+
+NSString *fullName = [[firstName stringByAppendingString:@" "]
+                        stringByAppendingString:lastName];
+
+NSString *replaced = [fullName stringByReplacingOccurrencesOfString:firstName
+                                                         withString:lastName];
+
+NSLog(@"%@", replaced);
+
+//copying variables 
+NSString *firstName = @"Hello, Mr. Higgie.";
+
+NSString *copy = [NSString stringWithString:firstName];
+
+NSLog(@"%@ is a copy of %@", copy, firstName);
+
+
+//empty objects
+NSString *emptyString = [[NSString alloc] init];
+NSArray *emptyArray = [[NSArray alloc] init];
+NSDictionary *emptyDictionary = [[NSDictionary alloc] init];
+
+
+NSString *firstName = @"Hello, Mr. Higgie.";
+
+//alloc -> allocate memory for empty string, init gives value
+NSString *copy = [[NSString alloc] initWithString:firstName];
+
+NSLog(@"%@ is a copy of %@", copy, firstName);

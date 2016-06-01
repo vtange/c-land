@@ -45,3 +45,23 @@ NSDictionary *appRatings = @{@"AngryBirds":@3,@"CandyLand":@4};
 
 //USE BRACKET NOTATION TO ACCESS KEY
 NSLog(@"Lettertouch has a rating of %@.", appRatings[@"Lettertouch"]);
+	  
+	  
+	  
+	  
+////---------------------------------
+////-------------------
+////Special Objects
+////-------------------
+////Note: no * for var declaration	  
+	  
+	  
+	  
+//---------------------------------
+//-------------------
+//NSUInteger
+//-------------------
+NSString *city = @"Ice World";
+NSUInteger cityLength = [city length];
+
+NSLog(@"City has %lu characters", cityLength);
