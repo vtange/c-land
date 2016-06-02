@@ -1,0 +1,48 @@
+//---------------------------------
+//-------------------
+//Using If / Else if / Else
+//-------------------
+
+NSString *hat = [mrHiggie currentHat];
+
+if([hat isEqualToString:@"Sombrero"]) {
+  NSLog(@"Ese es un muy buen sombrero");
+}
+else if ([hat isEqualToString:@"Fedora"]) {
+  NSLog(@"Mr. Higgie was an iPhone before there was iPhone");
+}
+else if ([hat isEqualToString:@"AstronautHelmet"]) {
+  NSLog(@"Mr. Higgie plays too much Halo");
+}
+else {
+  NSLog(@"Mr. Higgie is currently hatless");
+}
+
+//---------------------------------
+//-------------------
+//Using Switch
+//-------------------
+
+NSInteger day = getDayOfWeek();
+
+switch (day) {
+  case 1:
+  case 2:
+  case 3:
+  case 4: {
+    [mrHiggie setCurrentHat:@"Fedora"];
+    break;
+  }
+  case 5: {
+    [mrHiggie setCurrentHat:@"Sombrero"];
+    break;
+  }
+  case 6:
+  case 7: {
+    [mrHiggie setCurrentHat:@"AstronautHelmet"];
+    break;
+  }
+}
+
+NSLog(@"Mr. Higgie is wearing: %@", [mrHiggie currentHat]);
+
