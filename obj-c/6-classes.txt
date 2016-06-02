@@ -1,0 +1,111 @@
+//---------------------------------
+//-------------------
+//Declaring a class that inherits from NSObject
+//and Add a property
+//-------------------
+
+@interface MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone : NSObject
+
+@property NSString *phoneName;
+
+@end
+
+//---------------------------------
+//-------------------
+//Implementing a class
+//-------------------
+
+//MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.m file
+#import "MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h"
+
+@implementation MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone
+@end
+
+//---------------------------------
+//-------------------
+//Using a class
+//-------------------
+
+//normal file
+#import "MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h"
+
+MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone *talkingiPhone = [[MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone alloc] init];
+talkingiPhone.phoneName = @"Roger";
+NSLog(@"%@", talkingiPhone.phoneName);
+
+//---------------------------------
+//-------------------
+//Add a method
+//-------------------
+
+//MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h file
+@interface MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (void) speak;
+
+@end
+//==================================================================
+//MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.m file
+#import "MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h"
+
+@implementation MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone
+
+- (void) speak;
+{
+  NSLog(@"Speak Chiense");
+}
+
+@end
+
+//---------------------------------
+//-------------------
+//Use a method(message)
+//-------------------
+#import "MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h"
+
+MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone *talkingiPhone = [[MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone alloc] init];
+talkingiPhone.phoneName = @"Mr. Higgie";
+
+[talkingiPhone speak]
+
+
+//---------------------------------
+//-------------------
+//self /* JS equiv of this */
+//-------------------
+
+//MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.m file
+#import "MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h"
+
+@implementation MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone
+-(void)speak;
+{
+    NSLog(@"%@ says Hello There!", self.phoneName);
+}
+@end
+
+//---------------------------------
+//-------------------
+//Returning a string
+//-------------------
+@interface MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (NSString *) speak;
+@end
+
+
+#import "MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h"
+
+@implementation MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone
+-(NSString *)speak;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says Hello There!", self.phoneName];
+    return [NSString stringWithFormat:@"%@", message];
+}
+@end
