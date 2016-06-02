@@ -1,0 +1,51 @@
+//---------------------------------
+//-------------------
+//Looping in Arrays
+//-------------------
+
+NSArray *newHats = @[@"Cowboy", @"Conductor", @"Baseball"];
+
+for (NSString *hat in newHats) {
+
+  NSLog(@"Trying on new %@ hat", hat);
+
+  if([mrHiggie tryOnHat:hat]) {
+    NSLog(@"Mr. Higgie loves it");
+  }
+  else {
+    NSLog(@"Mr. Higgie hates it");
+  }
+}
+
+//---------------------------------
+//-------------------
+//Looping in Objects
+//-------------------
+
+NSDictionary *funnyWords = @{
+  @"Schadenfreude": @"pleasure derived by someone from another person's misfortune.",
+  @"Portmanteau": @"consisting of or combining two or more separable aspects or qualities",
+  @"Penultimate": @"second to the last"
+};
+
+for (NSString *word in funnyWords) {
+  NSString *definition = funnyWords[word];
+  NSLog(@"%@ is defined as %@", word, definition);
+}
+
+
+
+//---------------------------------
+//-------------------
+//Function Method to loop through Array and log everything.
+//-------------------
+
+NSArray *newHats = @[@"Cowboy", @"Conductor", @"Baseball", 
+  @"Beanie", @"Beret", @"Fez"];
+
+void (^enumeratingBlock)(NSString *, NSUInteger, BOOL *) = 
+  ^(NSString *hat, NSUInteger index, BOOL *stop){
+   NSLog(@"Trying on hat %@", hat);
+};
+                         
+[newHats enumerateObjectsUsingBlock:enumeratingBlock];
