@@ -1,0 +1,29 @@
+//---------------------------------
+//-------------------
+//Function Blocks
+//-------------------
+
+//first 'void' -> function doesn't return anything
+//second 'void' -> function takes no arguments
+
+void (^myFirstBlock)(void) = ^{
+  NSLog(@"Hello from inside the block");
+};
+myFirstBlock();
+
+
+
+//---------------------------------
+//-------------------
+//Passing Arguments
+//-------------------
+
+void (^myFirstBlock)(NSString *) = ^(NSString *str){
+  NSLog(str);
+//		- or -
+  NSLog(@"%@",str);
+};
+
+myFirstBlock(@"Hello");
+myFirstBlock(@"World");
+
