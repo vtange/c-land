@@ -25,8 +25,8 @@
 //-------------------
 //Using a class
 //-------------------
-
 //normal file
+
 #import "MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h"
 
 MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone *talkingiPhone = [[MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone alloc] init];
@@ -37,7 +37,6 @@ NSLog(@"%@", talkingiPhone.phoneName);
 //-------------------
 //Add a method
 //-------------------
-
 //MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h file
 @interface MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone : NSObject
 
@@ -49,6 +48,7 @@ NSLog(@"%@", talkingiPhone.phoneName);
 @end
 //==================================================================
 //MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.m file
+
 #import "MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h"
 
 @implementation MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone
@@ -64,6 +64,7 @@ NSLog(@"%@", talkingiPhone.phoneName);
 //-------------------
 //Use a method(message)
 //-------------------
+//MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.m file
 #import "MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h"
 
 MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone *talkingiPhone = [[MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone alloc] init];
@@ -76,8 +77,8 @@ talkingiPhone.phoneName = @"Mr. Higgie";
 //-------------------
 //self /* JS equiv of this */
 //-------------------
-
 //MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.m file
+
 #import "MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h"
 
 @implementation MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone
@@ -91,6 +92,8 @@ talkingiPhone.phoneName = @"Mr. Higgie";
 //-------------------
 //Returning a string
 //-------------------
+//MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h file
+
 @interface MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone : NSObject
 
 @property NSString *phoneName;
@@ -99,6 +102,8 @@ talkingiPhone.phoneName = @"Mr. Higgie";
 - (NSString *) speak;
 @end
 
+//==================================================================
+//MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.m file
 
 #import "MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h"
 
@@ -109,3 +114,160 @@ talkingiPhone.phoneName = @"Mr. Higgie";
     return [NSString stringWithFormat:@"%@", message];
 }
 @end
+
+
+//---------------------------------
+//-------------------
+//Methods with Arguments
+//-------------------
+//MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h file
+
+@interface MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (void) reportBatteryLife:(NSNumber *)battery;
+- (NSString *) speak:(NSString *)greeting;
+
+@end
+
+//==================================================================
+//MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.m file
+
+#import "MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h"
+
+@implementation MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone
+
+- (void)reportBatteryLife:(NSNumber *)battery;
+{
+    NSString *message = [NSString stringWithFormat:@"Battery life is at %@", battery];
+    NSLog(message);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end
+
+
+
+//---------------------------------
+//-------------------
+//Private Properties (Read-only)
+//-------------------
+//MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h file
+
+@interface MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+@property (readonly) NSNumber *batteryLife;
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+@end
+
+//==================================================================
+//MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.m file
+
+#import "MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h"
+
+@implementation MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([_batteryLife intValue] - [arg intValue]);
+}
+
+- (void) reportBatteryLife;
+{
+    NSLog(@"Battery life is %@", _batteryLife);
+}
+
+- (NSString *)speak:(NSString *)greeting;
+{
+    NSString *message = [NSString stringWithFormat:@"%@ says %@", self.phoneName, greeting];
+    return message;
+}
+@end
+
+
+
+//---------------------------------
+//-------------------
+//Private Properties (totally private)
+//-------------------
+//MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h file
+
+@interface MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone : NSObject {
+  NSNumber *_batteryLife;
+}
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+@end
+
+//==================================================================
+//MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.m file
+
+#import "MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h"
+
+@implementation MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone
+
+- (MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone *)init;
+{
+  _batteryLife = @100;
+  return [super init];
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([_batteryLife intValue] - [arg intValue]);
+}
+
+
+
+//---------------------------------
+//-------------------
+//Initial/Default value for Properties
+//-------------------
+//MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h file
+
+
+@interface MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone : NSObject
+
+@property NSString *phoneName;
+@property NSString *modelNumber;
+@property (readonly) NSNumber *batteryLife;
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+- (NSString *) speak:(NSString *)greeting;
+- (void) reportBatteryLife;
+@end
+
+//==================================================================
+//MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.m file
+
+
+#import "MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone.h"
+
+@implementation MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone
+
+- (MrHiggieIsAnAmazingPhoneAndIsLovedByEveryone *)init;
+{
+  _batteryLife = @100;
+  return [super init];
+}
+
+- (void) decreaseBatteryLife:(NSNumber *)arg;
+{
+  _batteryLife = @([self.batteryLife intValue] - [arg intValue]);
+}
